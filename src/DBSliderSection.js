@@ -66,10 +66,10 @@ export default function DBSliderSection() {
   }, [current]);
 
   return (
-    <div className="flex flex-col lg:flex-row w-full mt-12 mb-20 px-4 md:px-12">
+    <div className="flex flex-col lg:flex-row w-full mt-12 mb-20 px-4 md:px-12 py-6">
       {/* Slider Section */}
-      <div className="w-full lg:w-1/2 relative overflow-hidden">
-        <div className="relative min-h-[685px]">
+      <div className="w-full lg:w-1/2 relative overflow-hidden p-4">
+        <div className="relative min-h-[685px] rounded-lg overflow-hidden">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -77,7 +77,7 @@ export default function DBSliderSection() {
                 index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
             >
-              <img src={slide.img} alt="slide" className="w-full h-full object-cover" draggable={false} />
+              <img src={slide.img} alt="slide" className="w-full h-full object-cover rounded-lg" draggable={false} />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-transparent text-white p-6 flex flex-col justify-center">
                 {slide.headline && <h3 className="text-xl font-semibold mb-2">{slide.headline}</h3>}
                 <h2 className="text-3xl font-bold mb-4" dangerouslySetInnerHTML={{ __html: slide.subheadline.replace(/\n/g, '<br/>') }}></h2>
@@ -87,19 +87,12 @@ export default function DBSliderSection() {
               </div>
             </div>
           ))}
-          <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow">&#8592;</button>
-          <button onClick={nextSlide} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow">&#8594;</button>
 
-          {/* Navigation Dots */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white flex items-center space-x-4">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full border border-white ${index === current ? 'bg-white' : 'bg-transparent'}`}
-              ></button>
-            ))}
-            <span className="ml-4 text-sm">{current + 1}/{slides.length}</span>
+          {/* Fixed navigation arrows and counter */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-6 bg-white px-6 py-2 rounded shadow text-[#192986] font-semibold text-lg">
+            <button onClick={prevSlide} className="hover:opacity-70">&lt;</button>
+            <span>{current + 1}/{slides.length}</span>
+            <button onClick={nextSlide} className="hover:opacity-70">&gt;</button>
           </div>
         </div>
       </div>

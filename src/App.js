@@ -8,6 +8,10 @@ import businessPeople from './assets/business-people.png';
 import financialInclusion from './assets/financial_inclusion.png';
 import growthRate from './assets/growth_rate.png';
 import womenCelebrating from './assets/women_celebrating.png';
+import StartupStepsCarousel from './StartupStepsCarousel';
+import IdeaForm from "./IdeaForm";
+import Thinking from "./Thinking";
+import StartupPhases from "./StartupPhases";
 
 const slides = [
   {
@@ -100,10 +104,25 @@ const Slide = ({ data }) => (
   </motion.div>
 );
 
+
+
+
+
 export default function App() {
   const [index, setIndex] = useState(0);
   const [hoveredMenu, setHoveredMenu] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [idea, setIdea] = useState("");
+  const [status, setStatus] = useState("input"); // 'input' | 'thinking' | 'phases'
+
+  const handleSubmit = (ideaText) => {
+    setIdea(ideaText);
+    setStatus("thinking");
+    setTimeout(() => {
+      setStatus("phases");
+     }, 2000);
+    };
+
 
   const nextSlide = () => setIndex((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
@@ -216,6 +235,14 @@ export default function App() {
           </motion.p>
         </div>
       </section>
+      <StartupStepsCarousel />
+
+      {/* Idea Box Section */}
+      <div className="my-10 px-4">
+          {status === "input" && <IdeaForm onSubmit={handleSubmit} />}
+          {status === "thinking" && <Thinking />}
+          {status === "phases" && <StartupPhases />}
+      </div>
       
       <DBSliderSection />
         {/* Footer */}

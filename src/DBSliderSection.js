@@ -18,34 +18,34 @@ const slides = [
   },
   {
     img: growthRate,
-    headline: 'Engineer the future',
-    subheadline: 'Discover careers in technology',
+    headline: 'Growth in Entrepreneurship',
+    subheadline: 'Discover with us how your idea can generate eployemnt',
     link: 'https://careers.db.com/explore-the-bank/careers-in-technology/index?language_id=1'
   },
   {
     img: womenCelebrating,
-    headline: 'Women in Technology',
-    subheadline: 'Discover how we’re challenging the gender imbalance in technology',
+    headline: 'Financially Secure Women',
+    subheadline: 'Discover how we’re challenging the gender imbalance in the financial inclusion schemes',
     link: '/explore-the-bank/careers-in-technology/women-in-technology/'
   }
 ];
 
 const cards = [
   {
-    title: 'Professionals',
-    description: 'Discover the opportunity for you',
+    title: 'Idea Enhancer',
+    description: 'Give us your crude thought, we will enhance it to a marketable idea',
     bg: 'bg-[#192986] text-white',
     link: 'https://careers.db.com/professionals/index?language_id=1#/professional/'
   },
   {
-    title: 'Students and Graduates',
-    description: `Whether you're a university student or recent graduate, explore a broad range of entry routes tailored to you`,
+    title: 'Compliance & Regulatory Support',
+    description: `Banks, with their deep expertise in regulations, can guide startups in navigating the complex compliancer landscape, while fintech solutions can help banks streamline compliance processes.`,
     bg: 'bg-[#192986] text-white',
     link: 'https://careers.db.com/students-graduates/index?language_id=1#/graduate/'
   },
   {
-    title: 'School leavers',
-    description: 'Our school leaver opportunities offer an attractive alternative to university and a great platform to start a successful career.',
+    title: 'Building Trust and Credibility',
+    description: 'Partnering with established banks can enhance the credibility and trustworthiness of fintech solutions for entrepreneurs, making it easier to gain customer confidence.',
     bg: 'bg-[#192986] text-white',
     link: 'https://careers.db.com/School-leavers-uk/index?language_id=1'
   }
